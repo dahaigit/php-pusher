@@ -1,0 +1,15 @@
+<script>
+    var ws = new WebSocket("ws://192.168.10.10:9502");
+
+    ws.onopen = function(evt) {  //绑定连接事件
+        ws.send("uid=20");
+    };
+
+    ws.onmessage = function(evt) {//绑定收到消息事件
+        console.log( "Received Message: " + evt.data);
+    };
+
+    ws.onclose = function(evt) { //绑定关闭或断开连接事件
+        console.log("Connection closed.");
+    };
+</script>
